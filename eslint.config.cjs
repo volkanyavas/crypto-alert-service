@@ -1,9 +1,9 @@
-import js from '@eslint/js';
-import prettier from 'eslint-plugin-prettier';
-import parser from '@typescript-eslint/parser';
+const js = require('@eslint/js');
+const parser = require('@typescript-eslint/parser');
+const prettier = require('eslint-plugin-prettier');
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
-export default [
+module.exports = [
   js.configs.recommended,
 
   {
@@ -23,7 +23,7 @@ export default [
   {
     files: ['**/*.ts'],
     languageOptions: {
-      parser: parser,
+      parser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',

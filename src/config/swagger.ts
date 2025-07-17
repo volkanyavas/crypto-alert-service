@@ -22,5 +22,3 @@ const options: swaggerJsdoc.Options = {
 export const swaggerSpec = swaggerJsdoc(options);
 export const swaggerUiHandler = swaggerUi.serve;
 export const swaggerDocHandler = swaggerUi.setup(swaggerSpec);
-// @ts-ignore
-console.log('🧪 Swagger loaded routes:', swaggerSpec.paths);

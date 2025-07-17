@@ -25,7 +25,6 @@ const fetchPrices = async (): Promise<PriceMap> => {
 const checkAlerts = async () => {
   try {
     const prices = await fetchPrices();
-    console.log('📊 Current prices:', prices);
 
     const alerts = await prisma.alert.findMany({
       where: { triggered: false },
