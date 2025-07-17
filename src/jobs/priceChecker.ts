@@ -55,7 +55,7 @@ const checkAlerts = async () => {
         });
 
         console.log(
-          `🚨 Alert triggered for ${alert.symbol}: ${alert.direction} ${alert.targetPrice} (Current: ${currentPrice}) [User: ${user?.email}]`
+          `🚨 Alert triggered for ${alert.symbol}: ${alert.direction} ${alert.targetPrice} (Current: ${currentPrice}) [User: ${user?.email}]`,
         );
 
         if (user?.webhookUrl) {
@@ -71,7 +71,7 @@ const checkAlerts = async () => {
           } catch (err: any) {
             console.error(
               `❌ Failed to send webhook to ${user.webhookUrl}:`,
-              err.message
+              err.message,
             );
           }
         }
