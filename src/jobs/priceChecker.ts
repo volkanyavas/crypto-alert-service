@@ -6,12 +6,6 @@ type PriceMap = Record<string, number>;
 
 const COINS = ['bitcoin', 'ethereum', 'dogecoin'];
 
-const SYMBOL_TO_ID: Record<string, string> = {
-  BTC: 'bitcoin',
-  ETH: 'ethereum',
-  DOGE: 'dogecoin',
-};
-
 const fetchPrices = async (): Promise<PriceMap> => {
   const ids = COINS.join(',');
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;

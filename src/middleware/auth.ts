@@ -24,6 +24,6 @@ export const authenticate = (
     req.userId = payload.userId;
     next();
   } catch (err) {
-    return res.status(403).json({ error: 'Invalid or expired token' });
+    return res.status(403).json({ error: 'Invalid or expired token', err });
   }
 };
