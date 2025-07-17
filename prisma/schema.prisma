@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  email      String   @unique
+  password   String
+  webhookUrl String?
+  createdAt  DateTime @default(now())
+  alerts     Alert[]
+}
+
+model Alert {
+  id          String         @id @default(uuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id])
+  symbol      String
+  targetPrice Float
+  direction   AlertDirection
+  triggered   Boolean        @default(false)
+  createdAt   DateTime       @default(now())
+}
+
+enum AlertDirection {
+  ABOVE
+  BELOW
+}
